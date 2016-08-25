@@ -29,7 +29,7 @@
     "node-sass": "^3.8.0",
     "nodemon": "^1.10.0",
     "npm-run-all": "^3.0.0",
-    "npm-tasks": "^1.4.0",
+    "npm-tasks": "^1.4.1",
     "phantomjs-prebuilt": "^2.1.4",
     "postcss-cli": "^2.5.2",
     "power-assert": "^1.2.0",
@@ -38,7 +38,7 @@
     "sass-lint": "^1.8.2",
     "sinon": "^1.17.3",
     "spritesmith-cli": "^1.1.2",
-    "sync-dir": "^1.2.0",
+    "sync-dir": "^1.2.1",
     "webpack": "^1.12.13",
     "webpack-espower-loader": "^1.0.1"
   },
