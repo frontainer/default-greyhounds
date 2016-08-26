@@ -13,12 +13,12 @@ module.exports = {
     "pug": "pug ${viewsrc} -o ${dest} -P",
     "htmlhint": "htmlhint ${dest}/**/*.html",
     "sprite": "spritesmith --rc ./config/sprite.config.js",
-    "sasslint": "sass-lint ${sasssrc}/**/*.scss -v -q",
+    "sasslint": "sass-lint ${sasssrc}/**/*.scss -v",
     "sass": "node-sass ${sasssrc} --output ${dest}/assets/css --source-map ${dest}/assets/css",
     "postcss": "postcss -c ./config/postcss.config.js -r ${dest}/assets/css/**/*.css -m",
 
     "build:html": "tasks pug && tasks htmlhint",
-    "build:copy": "sync-dir",
+    "build:copy": "sync-dir --config ./config/sync.config.js",
     "build:script": "tasks webpack",
     "build:image": "tasks imagemin",
     "build:sass": "tasks sasslint && tasks sass && tasks postcss",
@@ -29,13 +29,13 @@ module.exports = {
     "build": "tasks sprite && tasks build:*",
     "watch": "tasks watch:*",
 
-    "watch:server": "tasks server",
     "watch:script": "tasks webpack -- -w",
-    "watch:sass": "nodemon -q -w ${sasssrc} -e scss -x tasks build:sass",
-    "watch:image": "nodemon -q -w ${imgdir} -e gif,jpg,png -x tasks build:image",
-    "watch:htmlhint": "nodemon -q -w ${dest} -e html -x tasks htmlhint",
-    "watch:copy": "sync-dir -w",
+    "watch:sass": "chokidar ${sasssrc}/**/*.scss -c 'tasks build:sass'",
+    "watch:htmlhint": "chokidar ${dest}/**/*.html -c 'tasks htmlhint'",
+    "watch:image": "chokidar ${imgdir}/**/* -c 'tasks build:image'",
+    "watch:copy": "sync-dir -w --config ./config/sync.config.js",
     "watch:html": "tasks pug -- -w",
     "watch:test": "tasks test -- --no-single-run --auto-watch",
+    "watch:server": "tasks server"
   }
 };
