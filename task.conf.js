@@ -28,6 +28,7 @@ module.exports = {
     "test": "karma start --single-run --no-auto-watch",
     "build": "tasks sprite && tasks build:*",
     "watch": "tasks watch:*",
+    "production": "tasks production:*",
 
     "watch:script": "tasks webpack -- -w",
     "watch:sass": "chokidar ${sasssrc}/**/*.scss -c 'tasks build:sass'",
@@ -36,6 +37,12 @@ module.exports = {
     "watch:copy": "sync-dir -w --config ./config/sync.config.js",
     "watch:html": "tasks pug -- -w",
     "watch:test": "tasks test -- --no-single-run --auto-watch",
-    "watch:server": "tasks server"
+    "watch:server": "tasks server",
+
+    "production:html": "tasks pug && tasks htmlhint",
+    "production:copy": "sync-dir --config ./config/sync.config.js",
+    "production:script": "tasks webpack -- -p",
+    "production:image": "tasks imagemin",
+    "production:sass": "tasks sasslint && tasks sass && tasks postcss",
   }
 };
