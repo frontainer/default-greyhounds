@@ -38,7 +38,7 @@
     "sass-lint": "^1.9.1",
     "sinon": "^1.17.3",
     "spritesmith-cli": "^1.1.2",
-    "sync-dir": "^1.4.0",
+    "sync-dir": "^1.4.1",
     "webpack": "^1.12.13",
     "webpack-espower-loader": "^1.0.1"
   },
