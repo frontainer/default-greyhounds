@@ -36,7 +36,7 @@ module.exports = {
     "watch:image": "chokidar ${imgdir}/**/* -c 'tasks build:image'",
     "watch:copy": "sync-dir -w --config ./config/sync.config.js",
     "watch:html": "tasks pug -- -w",
-    "watch:test": "tasks test -- --no-single-run --auto-watch",
+    "watch:test": "karma start --no-single-run --auto-watch",
     "watch:server": "tasks server",
 
     "production:html": "tasks pug && tasks htmlhint",
