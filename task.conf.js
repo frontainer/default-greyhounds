@@ -41,7 +41,7 @@ module.exports = {
 
     "production:html": "tasks pug && tasks htmlhint",
     "production:copy": "sync-dir --config ./config/sync.config.js",
-    "production:script": "tasks webpack -- -p",
+    "production:script": "webpack --config ./config/webpack.config.production.js",
     "production:image": "tasks imagemin",
     "production:sass": "tasks sasslint && tasks sass && tasks postcss",
   }
