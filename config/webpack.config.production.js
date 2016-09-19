@@ -1,7 +1,7 @@
 'use strict';
 const webpack = require("webpack");
 const ClosureCompiler = require('google-closure-compiler-js').webpack;
-let webpackConfig = {
+const webpackConfig = {
   entry: {
     'app': './src/js/app.js'
   },
