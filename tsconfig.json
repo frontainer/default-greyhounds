@@ -1,18 +1,25 @@
 {
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "es5",
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "outDir": "js",
-    "newLine": "LF"
-  },
-  "files": [
-    "node_modules/@types/core-js/index.d.ts",
-    "node_modules/@types/mocha/index.d.ts",
-    "node_modules/@types/power-assert/index.d.ts",
-    "src/ts/app.ts"
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "outDir": "js",
+        "newLine": "LF"
+    },
+    "filesGlob": [
+        "node_modules/@types/**/index.d.ts",
+        "src/ts/**/*.ts"
+    ],
+    "files": [
+        "node_modules/@types/core-js/index.d.ts",
+        "node_modules/@types/empower/index.d.ts",
+        "node_modules/@types/mocha/index.d.ts",
+        "node_modules/@types/power-assert-formatter/index.d.ts",
+        "node_modules/@types/power-assert/index.d.ts",
+        "src/ts/app-spec.ts",
+        "src/ts/app.ts"
+    ]
 }
