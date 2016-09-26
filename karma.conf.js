@@ -1,11 +1,8 @@
 'use strict';
 
 module.exports = function (config) {
-  let webpackConfig = require('./config/webpack.config');
-  // entryをdeleteしないとwatch時に無駄なコンパイルが発生する
-  delete webpackConfig.entry;
-  // outputをdeleteしないとts-loader使った時などに、拡張子のない謎のファイルができることがある
-  delete webpackConfig.output;
+  const webpackConfig = require('./config/webpack.config');
+
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -18,11 +15,11 @@ module.exports = function (config) {
     files: [
       'node_modules/power-assert/build/power-assert.js',
       'node_modules/sinon/pkg/sinon.js',
-      'src/js/**/*-spec.js'
+      'src/ts/**/*-spec.ts'
     ],
     exclude: [],
     preprocessors: {
-      'src/**/*-spec.js': ['webpack']
+      'src/**/*-spec.ts': ['webpack']
     },
     webpack: webpackConfig,
     webpackMiddleware: {

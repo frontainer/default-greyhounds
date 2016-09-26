@@ -17,10 +17,11 @@ module.exports = {
     "sasslint": "sass-lint ${sasssrc}/**/*.scss -v",
     "sass": "node-sass ${sasssrc} --output ${tmp}/css --source-map ${tmp}/css",
     "postcss": "postcss -m -c ./config/postcss.config.js -d ${dest}/assets/css ${tmp}/css/**/*.css",
+    "tsconfig": "tsconfig -u",
 
     "build:html": "tasks pug && tasks htmlhint",
     "build:copy": "sync-dir --config ./config/sync.config.js",
-    "build:script": "tasks webpack",
+    "build:script": "tasks tsconfig && tasks webpack",
     "build:image": "tasks imagemin",
     "build:sass": "tasks sasslint && tasks sass && tasks postcss && rimraf ${tmp}",
 
@@ -31,7 +32,7 @@ module.exports = {
     "watch": "tasks watch:*",
     "production": "tasks production:*",
 
-    "watch:script": "tasks webpack -- -w",
+    "watch:script": "tasks tsconfig && tasks webpack -- -w",
     "watch:sass": "chokidar ${sasssrc}/**/*.scss -c 'tasks build:sass'",
     "watch:htmlhint": "chokidar ${dest}/**/*.html -c 'tasks htmlhint'",
     "watch:image": "chokidar ${imgdir}/**/* -c 'tasks build:image'",

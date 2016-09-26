@@ -3,7 +3,7 @@ const webpack = require("webpack");
 
 const webpackConfig = {
   entry: {
-    'app': './src/js/app.js'
+    'app': './src/ts/app.ts'
   },
   output: {
     path: 'public/assets/js',
@@ -17,23 +17,23 @@ const webpackConfig = {
     modulesDirectories: [
       'node_modules',
       'src'
-    ]
+    ],
+    extensions: ['', '.ts', '.js', '.html']
   },
   module: {
     preLoaders: [
-      { test: /\.js$/, exclude:/Spec\.js$/i, loaders: ['eslint'] }
+      { test: /\.ts$/, exclude:/node_modules/, loaders: ['tslint'] }
     ],
     loaders: [
       { test: /\.html$/, exclude:/node_modules/, loaders: ['html'] },
-      { test: /Spec\.js$/i, exclude:/node_modules/, loaders: ['webpack-espower','babel'] },
-      { test: /\.jsx?$/, exclude:/node_modules/, loaders: ['babel'] }
+      { test: /\.ts$/, exclude:/node_modules/, loader: 'ts' }
     ]
   },
   plugins: [
   ],
-  eslint: {
-    configFile: '.eslintrc',
-    failOnError: true
+  tslint: {
+    emitErrors: true,
+    failOnHint: true
   }
 };
 
